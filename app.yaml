@@ -15,7 +15,7 @@ handlers:
   static_dir: markitup
 
 - url: /.*
-  script: atestat.app
+  script: proiect-987.app
 
 
 libraries:
