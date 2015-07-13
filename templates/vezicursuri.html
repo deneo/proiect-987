@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block titlu %}
+{{categorie.categorie}}
+
+{% endblock %}
+
+{% block navbar %}
+	<li> <a href="/pozacategorie/{{categorie.categorie}}">Schimba poza categorie</a> </li>
+{% endblock %}
+
+{% block continut %}
+
+<br />
+
+<br /> <br />
+<hr style = "height: 5px; border-top: dashed 5px #dddddd;" />
+<center> 
+	<div class = "categorie-poza-container" style = "margin-top: -80px;">		
+		<img src = "{{categorie.link_poza}}" class = "categorie-poza" />
+	</div> 
+	<br />
+	<h3 style = "margin-top: -10px;"> {{categorie.categorie}} </h3>
+</center>
+
+
+<div class="well">
+	<ul class="nav nav-pills nav-stacked">
+
+	{% for curs in cursuri %}
+		<li role="presentation"> <a href="/curs/{{curs.key().id()}}" class = "">{{curs.titlu}}</a> </li>
+	{% endfor %}
+	</ul>
+</div>
+
+{% endblock %}

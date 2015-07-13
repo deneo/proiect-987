@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block titlu %}
+Platformă online de cursuri
+
+{% endblock %}
+
+{% block continut %}
+
+<h1> Categorii cursuri </h1>
+
+{% for categorie in categorii %}
+	<a href="/categorie/{{categorie.categorie}}" class = "categorie">
+		<center> <div class = "categorie-poza-container">		
+			<img src = "{{categorie.link_poza}}" class = "categorie-poza" />
+		</div> </center>
+		<br />
+		{{categorie.categorie}} 
+	</a>
+{% endfor %}
+
+
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{{title}}</title>
+    <!-- Bootstrap Core CSS -->
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    
+    <link type = "text/css" href="/bootstrap/css/bootstrap.min.css" rel="stylesheet"> 
+    <link type = "text/css" href="/bootstrap/css/style.css" rel="stylesheet">
+    <link type = "text/css" href="/bootstrap/css/categorie_dragu.css" rel = "stylesheet">
+    
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+
+    <script src="/bootstrap/js/script.js"></script>
+    <script src="/bootstrap/js/bootstrap.js"></script>
+
+    <script type="text/javascript" src="/markitup/jquery.markitup.js"></script>
+    <script type="text/javascript" src="/markitup/sets/textile/set.js"></script>
+    <link rel="stylesheet" type="text/css" href="/markitup/sets/textile/style.css" />
+    <link rel="stylesheet" type="text/css" href="markitup/skins/markitup/style.css" />
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><b>{% block titlu %}{% endblock %}</b></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            {% block navbar %}
+            {% endblock %}
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Temă <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#" data-theme="amelia" class="theme-link">Amelia</a></li>
+                <li><a href="#" data-theme="cerulean" class="theme-link">Cerulean</a></li>
+                <li><a href="#" data-theme="cosmo" class="theme-link">Cosmo</a></li>
+                <li><a href="#" data-theme="flatly" class="theme-link">Flatly</a></li>
+                <li><a href="#" data-theme="journal" class="theme-link">Journal</a></li>
+                <li><a href="#" data-theme="readable" class="theme-link">Readable</a></li>
+                <li><a href="#" data-theme="simplex" class="theme-link">Simplex</a></li>
+                <li><a href="#" data-theme="spacelab" class="theme-link">Spacelab</a></li>
+                <li><a href="#" data-theme="united" class="theme-link">United</a></li>
+              </ul>
+            </li>
+           </ul>
+        </div>
+      </div>
+</nav>
+    <div id="nopadding" class="container-fluid ">
+        <div id="nopadding" class="col-lg-3 container ">
+            <div class="well">
+                <ul class="nav nav-pills nav-stacked">
+                    <li role="presentation"> <a href="/">Categorii cursuri</a></li>
+                    <li role="presentation"> <a href="/adauga_curs">Adauga un curs</a></li>
+                    <li role="presentation"> <a href="/adauga_intrebare">Adauga o intrebare</a></li>
+                </ul>
+            </div>
+            <div class="well">
+                <ul class="nav nav-pills nav-stacked">
+                <center> Cursuri </center>
+                    {% for curs in courses %}
+                        <li role="presentation"> <a href="/curs/{{curs.key().id()}}">{{curs.titlu}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="container-fluid col-lg-9">
+            {% block continut %}
+            {% endblock %}
+        </div>
+    </div>
+</body>
+
+</html>

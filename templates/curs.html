@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block titlu %}
+{{curs.titlu}}
+{% endblock %}
+
+{% block navbar %}
+
+ <li> <a href="/quiz/{{curs.key().id()}}/1">Vezi întrebări</a> </li>
+ <li> <a href="/adauga_curs/{{curs.key().id()}}">Modifică</a> </li>
+ <li> <a href="/sterge_curs/{{curs.key().id()}}">Sterge</a> </li>
+
+{% endblock %}
+
+{% block continut %}
+
+<div class="container-fluid">
+{{curs.continut}}
+
+<br>
+
+<!--<h2> Vezi și cursuri din aceasi categorie </h2>
+
+{% for c in curs_from_cat %}
+	{% if c.key().id() != curs.key().id() %}
+		<a href="/curs/{{c.key().id()}}" class = "btn btn-default">{{c.titlu}}</a>
+	{% endif %}
+{% endfor %} -->
+
+</div>
+
+{% endblock %}

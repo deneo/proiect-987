@@ -1,0 +1,35 @@
+.quiz-choice {
+	background-color: #eeeeee;
+	color: #111111;
+	font-size: 15px;
+
+	padding: 10px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	box-shadow: 0 0 10px: #d9edf7;
+	
+	border-radius: 10px;
+	
+	transition: all 1s;
+	-webkit-transition: all 1s;
+	-moz-transition: all 1s;
+	-o-transition: all 1s;
+}
+
+.quiz-choice:hover, .user-choice {
+	background-color: #444444;
+	color: #eeeeee;
+}
+
+.user-choice {
+	box-shadow: 0 0 10px #31708f;
+}
+
+#nopadding {
+	padding-left: 0px;
+}
+
+body { padding-top: 80px; }
+

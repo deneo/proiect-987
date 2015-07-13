@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block titlu %}
+
+Adaugă un curs
+
+{% endblock %}
+
+{% block continut %}
+
+	{% if mesaj != '' %}
+	<div class="alert alert-info" role="alert"> {{mesaj}} </div>
+	{% endif %}
+
+	<form method="post" class="form-horizontal">
+
+		<!-- Text input-->
+		<div class="control-group">
+		  <label class="control-label" for="titlu">Titlu</label>
+		  <div class="controls">
+		    <input value="{{titlu}}" id="titlu" name="titlu" type="text" class="input-large form-control">
+		 
+		  </div>
+		</div>
+
+		<div class="control-group">
+		  <label class="control-label" for="titlu">Categorie</label>
+		  <div class="controls">
+		    <input value="{{categorie}}" id="categorie" name="categorie" type="text" class="input-large form-control">
+		 
+		  </div>
+		</div>
+
+		<!-- Textarea -->
+		<div class="control-group">
+		  <label class="control-label" for="continut">Continut</label>
+		  <div class="controls">                     
+		    <textarea id="continut" name="continut">{{text}}</textarea>
+		  </div>
+		</div>
+
+
+	<p>Pentru a insera imagini in curs se recomanda stocarea pe <a href="http://imgur.com/">http://imgur.com/</a></p>
+
+	<input class="btn" value="Adauga!" type="submit">
+
+	</form>
+
+	 <script language="javascript">
+				$(document).ready(function()	{
+				    $('#continut').markItUp(myTextileSettings);
+				});
+	</script>
+
+{% endblock %}

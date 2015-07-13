@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block titlu %}
+{{categorie}}
+{% endblock %}
+
+{% block continut %}
+
+	{% if mesaj != '' %}
+	<div class="alert alert-info" role="alert"> {{mesaj}} </div>
+	{% endif %}
+
+	<form method="post" class="form-horizontal">
+
+		<!-- Text input-->
+		<div class="control-group">
+		  <label class="control-label" for="titlu">Link poza</label>
+		  <div class="controls">
+		    <input id="link_poza" name="link_poza" type="text" class="input-xlarge form-control">
+		  </div>
+		</div>
+
+		<br/>
+	    <input class="btn" value="Modifica!" type="submit">
+
+	</form>
+
+
+{% endblock %}

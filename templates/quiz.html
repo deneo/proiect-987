@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block titlu %}
+Întrebari - {{curs_name}}
+{% endblock %}
+
+{% block navbar %}
+
+ {% if question_number > 2 %}
+	 <li> <a href="/quiz/{{curs_id}}/{{question_number - 2}}">Întrebarea anterioara</a> </li>
+ {% endif %}
+ {% if lastOne == 0 %}
+	<li> <a href="/quiz/{{curs_id}}/{{question_number}}">Urmatoarea întrebare</a> </li>
+ {% endif %}
+	<li> <a href="/curs/{{curs_id}}">Mergi la curs</a> </li>
+
+{% endblock %}
+
+
+{% block continut %}
+
+<div class="well col-lg-12"><h1><b>{{question.question}}</b>
+
+<hr>
+	<form method="post" class="form-horizontal">
+
+	{% if mesaj != '' %}
+	<div class="alert alert-info" role="alert">
+	 {{mesaj}} 
+	 {% if mesaj[8] == 'c' and lastOne == 0 %}
+		<a href="/quiz/{{curs_id}}/{{question_number}}" class="btn btn-default pull-right"> Urmatoarea întrebare </a>
+		{% endif %}
+	</div>
+
+	{% endif %}
+
+	<center>
+	<div class="control-group">
+		<div class="controls">
+
+		<div class = "row">
+			<div class = "col-md-1 col-sm-1"> </div>
+			<div class = "col-md-4 col-sm-4"> 
+				<label style = "width: 100%;">
+					<div class="quiz-choice" id = "choice1" onclick = "choose(1)">
+						<input type="radio" name="answer" value="1" style = "display: none;"/> 
+						{{question.answer1}} 
+					</div>	
+				</label>
+			</div>
+			<div class = "col-md-2 col-sm-2"> </div>
+			<div class = "col-md-4 col-sm-4">
+				<label style = "width: 100%;">
+					<div class="quiz-choice" id = "choice2" onclick = "choose(2)">					
+						<input type="radio" name="answer" value="2" style = "display: none;" /> 
+						{{question.answer2}} 
+					</div>
+				</label>
+			</div>
+			<div class = "col-md-1 col-sm-1"> </div>
+		</div>
+		<div class = "row">
+			<div class = "col-md-1 col-sm-1"> </div>
+			<div class = "col-md-4 col-sm-4"> 
+				<label style = "width: 100%;">
+					<div class="quiz-choice" id = "choice3" onclick = "choose(3)">
+						<input type="radio" name="answer" value="3" style = "display: none;" /> 
+						{{question.answer3}} 
+					</div>	
+				</label>
+			</div>
+			<div class = "col-md-2 col-sm-2"> </div>
+			<div class = "col-md-4 col-sm-4">
+				<label style = "width: 100%;">
+					<div class="quiz-choice" id = "choice4" onclick = "choose(4)">					
+						<input type="radio" name="answer" value="4" style = "display: none;" /> 
+						{{question.answer4}} 
+					</div>
+				</label>
+			</div>
+			<div class = "col-md-1 col-sm-1"> </div>
+		</div>
+	</div>
+
+	<input class="btn btn-primary" value="Verifica" style = "font-size: 15px;" type="submit">
+
+	</div>
+	</center>
+	<br /> 
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block titlu %}
+Adaugă o întrebare
+{% endblock %}
+
+{% block continut %}
+
+
+	{% if mesaj != '' %}
+	<div class="alert alert-info" role="alert"> {{mesaj}} </div>
+	{% endif %}
+
+	<form method="post" class="form-horizontal">
+
+		<!-- Text input-->
+		<div class="control-group">
+		  <label class="control-label" for="titlu"> Intrebare</label>
+		  <div class="controls">
+		    <input id="question" name="question" type="text" class="input-xlarge form-control">
+		 
+		  </div>
+		</div>
+		<div class="control-group">
+		  <label class="control-label" for="titlu"> Raspuns 1</label>
+		  <div class="controls">
+		    <input id="answer1" name="answer1" type="text" class="input-xlarge form-control">
+		 
+		  </div>
+		</div>
+		<div class="control-group">
+		  <label class="control-label" for="titlu"> Raspuns 2</label>
+		  <div class="controls">
+		    <input id="answer2" name="answer2" type="text" class="input-xlarge form-control">
+		 
+		  </div>
+		</div>
+		<div class="control-group">
+		  <label class="control-label" for="titlu"> Raspuns 3</label>
+		  <div class="controls">
+		    <input id="answer3" name="answer3" type="text" class="input-xlarge form-control">
+		 
+		  </div>
+		</div>
+
+		<div class="control-group">
+		  <label class="control-label" for="titlu"> Raspuns 4</label>
+		  <div class="controls">
+		    <input id="answer4" name="answer4" type="text" class="input-xlarge form-control">
+		 
+		  </div>
+		</div>
+
+		<div class="control-group">
+		  <label class="control-label" for="titlu"> Raspuns corect</label>
+		  <div class="controls">
+		    <input type="radio" name="correctAnswer" value="1"> 1
+		    <input type="radio" name="correctAnswer" value="2"> 2
+		    <input type="radio" name="correctAnswer" value="3"> 3
+		    <input type="radio" name="correctAnswer" value="4"> 4
+		 
+		  </div>
+		</div>
+
+		
+
+
+		<div class="control-group">
+		  <label class="control-label" for="titlu"> Selecteaza cursul de care apartine intrebarea</label>
+		  <div class="controls">
+		    <select name="_parent" class = "form-control">
+			{% for course in courses %}
+				<option value={{course.key().id()}}>{{course.titlu}}</option>
+			{% endfor %}
+		</select>
+		 
+		  </div>
+		</div>
+
+		<br/>
+	    <input class="btn" value="Adauga!" type="submit">
+
+	</form>
+
+
+{% endblock %}

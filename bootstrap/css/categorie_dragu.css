@@ -1,0 +1,42 @@
+.categorie {
+	display: inline-block;
+	padding: 10px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-radius: 10px;
+	margin: 10px;
+	border: dashed #cccccc 2px;
+	text-align: center;
+	background-color: #efefef;
+
+	height: 200px;
+	width: 200px;
+	overflow: hidden;
+	transition: all 1s;
+	-webkit-transition: all 1s;
+	-moz-transition: all 1s;
+	-o-transition: all 1s;
+}
+
+.categorie-poza {
+	margin: 10px;
+	border-radius: 1000px;
+	height: 100px;
+	width: 100px;
+	overflow: hidden;
+	box-shadow: 0 0 10px black;
+	transition: all 1s;
+	-webkit-transition: all 1s;
+	-moz-transition: all 1s;
+	-o-transition: all 1s;
+}
+
+
+.categorie:hover {
+	box-shadow: 0 0 20px #e0e0e0;
+}
+
+.categorie-poza:hover {
+	box-shadow: 0 0 20px black;
+}
+
