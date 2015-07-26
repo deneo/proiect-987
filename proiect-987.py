@@ -10,7 +10,19 @@ import re
 from google.appengine.ext import db
 
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
-jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir))
+jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir), autoescape = True)
+
+html_escape_table = {
+    "&": "&amp;",
+    '"': "&quot;",
+    "'": "&apos;",
+    ">": "&gt;",
+    "<": "&lt;",
+    }
+
+def html_escape(text):
+    """Produce entities within text."""
+    return "".join(html_escape_table.get(c,c) for c in text)
 
 def blog_key(name = 'default'):
 	return db.Key.from_path('blog', name)
@@ -68,9 +80,9 @@ class add_course(Handler):
 			self.render_add_course()
 
 	def post(self, curs_id = None):
-		titlu = self.request.get("titlu")
+		titlu = html_escape(self.request.get("titlu"))
 
-		continut = self.request.get("continut")
+		continut = html_escape(self.request.get("continut"))
 
 		categorie = self.request.get("categorie")
 
